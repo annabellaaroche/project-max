@@ -36,14 +36,14 @@ class CustomAccountManager(BaseUserManager):
 
 class NewUser(AbstractBaseUser,PermissionsMixin):
 
-    id_user = models.AutoField(primary_key=True,unique=True)
+    id= models.AutoField(primary_key=True,unique=True)
     email= models.EmailField(_('email address'),unique=True)
     user_name = models.CharField(max_length=150,unique=True)
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
     start_date = models.DateTimeField(default=timezone.now)
     is_staff = models.BooleanField(default=False)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True) #Add Other authentication later
 
     objects = CustomAccountManager()
     USERNAME_FIELD = 'email'

@@ -166,6 +166,8 @@ cython_debug/
 
 #Specific File 
 project-max/project_max/settings.py
+.keys
+keys/
 
 # PyCharm
 #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
