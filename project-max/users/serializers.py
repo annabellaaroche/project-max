@@ -15,3 +15,8 @@ class RegisterUserSerializer(serializers.ModelSerializer):
             instance.set_password(password)
         instance.save()
         return instance
+    
+#class SingInSerializer(serializers.Serializer):
+#  email = serializers.CharField(max_length=255, required=True)
+#  password = serializers.CharField(max_length=255, required=True, write_only=True)
+  
