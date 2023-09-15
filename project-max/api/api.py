@@ -1,6 +1,6 @@
 from .models import Owner,Especie,Raza,petSize,Pets,Vacuna,citaMedica
 from rest_framework import viewsets, permissions
-from .serializers import OwnerSerializer,EspecieSerializer,RazaSerializer,petSizeSerializer,PetsSerializer,VacunaSerializer,citaMedicaSerializer
+from .serializers import OwnerSerializer,EspecieSerializer,RazaSerializer, citaMedicaSerializer2,petSizeSerializer,PetsSerializer,VacunaSerializer,citaMedicaSerializer
 
 class OwnerViewSet(viewsets.ModelViewSet):
     queryset = Owner.objects.all()
@@ -35,4 +35,10 @@ class VacunaViewSet(viewsets.ModelViewSet):
 class citaMedicaViewSet(viewsets.ModelViewSet):
     queryset = citaMedica.objects.all()
     permission_classes = [permissions.IsAuthenticated]
-    serializer_class = citaMedicaSerializer
+
+    def get_serializer_class(self):
+        if self.request.method == 'GET':
+            return citaMedicaSerializer
+        if self.request.method == 'POST':
+            return citaMedicaSerializer2
+        return citaMedicaSerializer2

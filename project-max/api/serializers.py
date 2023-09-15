@@ -28,12 +28,18 @@ class PetsSerializer(serializers.ModelSerializer):
         fields = ('id_pet','name_pet','birth_date_pet','raza_id','pet_size_id','pet_gender','pet_color','owner')
 
 class VacunaSerializer(serializers.ModelSerializer):
+    mascota = PetsSerializer()
     class Meta:
         model = Vacuna
         fields = ('id_vacuna','name_vacuna','date_vacuna','next_vacuna_date','mascota')
 
 class citaMedicaSerializer(serializers.ModelSerializer):
+    mascota = PetsSerializer()
     class Meta:
         model = citaMedica
         fields = ('id_cita','fecha_cita','motivo_cita','notas_cita','mascota')
        
+class citaMedicaSerializer2(serializers.ModelSerializer):
+    class Meta:
+        model = citaMedica
+        fields = ('id_cita','fecha_cita','motivo_cita','notas_cita','mascota')
