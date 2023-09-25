@@ -33,6 +33,11 @@ class VacunaSerializer(serializers.ModelSerializer):
         model = Vacuna
         fields = ('id_vacuna','name_vacuna','date_vacuna','next_vacuna_date','mascota')
 
+class VacunaSerializer2(serializers.ModelSerializer):
+    class Meta:
+        model = Vacuna
+        fields = ('id_vacuna','name_vacuna','date_vacuna','next_vacuna_date','mascota')        
+
 class citaMedicaSerializer(serializers.ModelSerializer):
     mascota = PetsSerializer()
     class Meta:
