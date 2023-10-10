@@ -1,5 +1,6 @@
 from django.db import models
 from django.conf import settings
+from users.models import NewUser
 
 # Create your models here.
 class Especie(models.Model):
@@ -30,7 +31,7 @@ class Pets(models.Model):
     pet_size_id=models.ForeignKey(petSize,on_delete=models.CASCADE)
     pet_gender = models.CharField(max_length=10) #F or M
     pet_color = models.CharField(max_length=50)
-    owner = models.ForeignKey(Owner,on_delete=models.CASCADE)
+    owner = models.ForeignKey(NewUser,on_delete=models.CASCADE)
 
 class Vacuna(models.Model):
     id_vacuna = models.AutoField(primary_key=True,unique=True)
